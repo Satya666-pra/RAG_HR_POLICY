@@ -1,0 +1,41 @@
+python-dotenv
+
+# orchestration (langchain 1.x — hr_assistant/agent.py uses create_agent)
+langchain>=1.0,<2
+langchain-core>=1.0,<2
+langchain-community
+langchain-text-splitters
+langgraph>=0.2
+
+# LLM — Groq (free tier) primary + Groq fallback model, routed in-process by
+# LiteLLM (hr_assistant/llm.py). langchain-openai is the eval judge only.
+langchain-openai
+litellm
+langchain-litellm
+
+# vector store — local Qdrant (on disk, no account) or Qdrant Cloud free tier;
+# dense + sparse/BM25 hybrid. fastembed also gives FREE LOCAL dense embeddings
+# and a LOCAL cross-encoder reranker (no Jina key needed).
+langchain-qdrant
+qdrant-client
+fastembed
+
+# document ingestion — local files, multi-format parsing (pdf/docx/pptx)
+pypdf
+python-docx
+python-pptx
+
+# Jina (optional, only if EMBEDDING_PROVIDER / RERANK_PROVIDER = jina)
+requests
+
+# web app + Google login (st.login needs Authlib)
+streamlit
+Authlib
+
+# reliability — numpy for the semantic cache
+numpy
+pydantic
+
+# LangSmith — tracing + evaluation (optional, free developer plan)
+langsmith
+openevals

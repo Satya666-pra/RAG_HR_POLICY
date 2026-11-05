@@ -1,0 +1,40 @@
+# Local container run — to test the image BEFORE deploying to Render.
+#
+#   docker compose run --rm ingest -> ingest the corpus (once)
+#   docker compose up --build      -> the app at http://localhost:8501
+#   docker compose run --rm eval   -> one LangSmith evaluation run, then exit
+#
+# Everything reads secrets from .env. With the default LOCAL embedder/reranker
+# and local Qdrant, the data lives in the named volume `hrdata` so it survives
+# container restarts. The app runs in open local mode (no Google login) unless
+# you also mount a Streamlit [auth] secrets file.
+
+x-app: &app
+  build: .
+  env_file: [.env]
+  environment:
+    PORT: "8501"
+  volumes:
+    - hrdata:/app/qdrant_local
+    - hrstorage:/app/storage
+
+services:
+  app:
+    <<: *app
+    ports:
+      - "8501:8501"
+
+  # One-off jobs, not services. profiles:[tools] keeps them out of `docker compose up`.
+  ingest:
+    <<: *app
+    command: python ingest.py
+    profiles: [tools]
+
+  eval:
+    <<: *app
+    command: python evaluate.py
+    profiles: [tools]
+
+volumes:
+  hrdata:
+  hrstorage:

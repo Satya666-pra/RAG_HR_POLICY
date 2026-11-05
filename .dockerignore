@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+storage/
+qdrant_local/
+.streamlit/secrets.toml
+results/
+.git/
+
+DEPLOYMENT/

@@ -1,0 +1,51 @@
+# Render Blueprint — one Docker web service on the free plan.
+# Deploy: push this folder to a GitHub repo, then Render dashboard ->
+# New -> Blueprint -> pick the repo. Full steps: commands/commands-deployment.md
+#
+# `sync: false` = Render prompts you for the value in the dashboard; it is NOT
+# stored in this file. Never put real keys in render.yaml.
+#
+# NOT expressible here (do it in the dashboard): the Secret File "secrets.toml"
+# holding Streamlit's [auth] block (Google login). See .streamlit/secrets.toml.example.
+
+services:
+  - type: web
+    name: hr-rag-assistant
+    runtime: docker
+    plan: free                      # 512 MB RAM, sleeps after 15 min idle, no persistent disk
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /_stcore/health
+    autoDeploy: true
+    envVars:
+      # -- access control (public URL: never run open) --
+      - key: REQUIRE_AUTH
+        value: "true"
+      - key: ALLOWED_EMPLOYEE_EMAILS
+        sync: false                 # e.g. priya@acme.com,meera@acme.com
+
+      # -- LLM (Groq free tier) --
+      - key: GROQ_API_KEY
+        sync: false
+      - key: LLM_MODEL_NAME
+        value: groq/openai/gpt-oss-20b
+      - key: FALLBACK_MODEL_NAME
+        value: groq/openai/gpt-oss-120b
+
+      # -- retrieval: API-based embeddings/reranker + hosted Qdrant, because the
+      #    free instance has only 512 MB RAM and an ephemeral disk --
+      - key: EMBEDDING_PROVIDER
+        value: jina
+      - key: RERANK_PROVIDER
+        value: jina
+      - key: JINA_API_KEY
+        sync: false
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+
+      # -- optional --
+      - key: GUARDRAIL_PROVIDER
+        value: llm
+      - key: LANGSMITH_TRACING
+        value: "false"
