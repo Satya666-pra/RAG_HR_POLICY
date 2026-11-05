@@ -1,0 +1,27 @@
+WORK FROM HOME POLICY
+
+Policy Category: Work From Home
+
+1. Purpose
+This policy defines when and how eligible employees may work from home (WFH), and the expectations that apply while doing so. It is a hypothetical sample policy written for this project.
+
+2. Eligibility
+Confirmed full-time employees whose role can be performed remotely are eligible for WFH. Employees on probation (see the Probation Policy) are not eligible until they are confirmed, except with special written approval from their direct manager. Roles that require physical presence, such as front desk, warehouse, or on-site facilities, are not eligible.
+
+3. WFH Allowance
+Eligible employees may work from home up to 2 days per week. Working from home every day is not permitted under standard eligibility. Employees must be in the office on the remaining days unless on approved leave or business travel. Teams may designate 1 fixed in-office day per week for meetings, and employees must attend it even if it falls on a WFH day.
+
+4. How to Request WFH
+Regular weekly WFH days must be agreed with the direct manager and recorded in the HR portal. Ad hoc WFH requests must be submitted at least 1 working day in advance. Same-day requests are accepted only for genuine reasons such as illness of a family member or severe weather, and are subject to manager approval.
+
+5. Temporary Full-Time Remote Work
+In exceptional circumstances such as a medical condition, a family emergency, or relocation, an employee may request temporary full-time remote work for up to 30 days. This requires approval from both the direct manager and HR. Extensions beyond 30 days are reviewed case by case and are not guaranteed.
+
+6. Working Hours and Availability
+Employees working from home must follow their normal working hours, be reachable on the company chat and email, and attend all scheduled meetings with their camera on unless the meeting organizer says otherwise. Response to urgent messages is expected within 30 minutes during working hours.
+
+7. Equipment, Security, and Expenses
+Employees must work on company-approved devices, use the company VPN, and never share their credentials or work in public places where confidential information can be seen. Eligible employees may claim a one-time home office setup allowance and reimbursement for internet and mobile bills as described in the Reimbursement Policy.
+
+8. Withdrawal of WFH
+Management may withdraw or reduce WFH privileges if there are performance concerns, repeated unavailability during working hours, or a breach of the Code of Conduct or information security rules. Employees will be informed in writing with the reason.
